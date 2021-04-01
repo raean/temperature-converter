@@ -40,11 +40,11 @@ class Converter extends React.Component {
         const temp = this.state.value;
         if (unit === "Celsius") {
             this.setState({
-                result: temp*(9/5) + 32
+                result: Math.round(temp*(9/5) + 32, 2)
             });
         } else {
             this.setState({
-                result: (temp-32) * (5/9)
+                result: Math.round((temp-32) * (5/9), 2)
             });
         }
         event.preventDefault();
@@ -58,12 +58,12 @@ class Converter extends React.Component {
                     <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label> 
                 <br/>
-                <label for="celsius">to Celsius</label>
+                <label for="celsius">Celsius</label>
                 <input type="radio" id="celsius" name="type" value="Celsius" 
                 checked={this.state.toUnit === "Celsius"} 
                 onChange={this.onRadioChange} />
 
-                <label for="farenheit">to Farenheit</label>
+                <label for="farenheit">Farenheit</label>
                 <input type="radio" id="farenheit" name="type" value="Farenheit" 
                 checked={this.state.toUnit === "Farenheit"} 
                 onChange={this.onRadioChange} />
